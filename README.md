@@ -1,4 +1,3 @@
-Sure, here is the formatted content:
 
 **Features:**
 - Search for books by title, author, or genre
