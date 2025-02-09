@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BookShelf - Your Personal Library</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/dark-mode.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h1>📚 BookShelf</h1>
+        <div class="nav-controls">
+          <button id="darkModeToggle">🌙</button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="search-section">
+        <div class="search-container">
+          <div class="search-type-toggle">
+            <button id="regularSearchBtn" class="search-type-btn active">
+              Regular Search
+            </button>
+            <button id="smartSearchBtn" class="search-type-btn">
+              Smart Search
+            </button>
+          </div>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search for books..."
+            data-regular-placeholder="Search for books..."
+            data-smart-placeholder="Enter a genre (e.g., sci-fi, romance, horror)..."
+          />
+          <select id="searchFilter">
+            <option value="all">All</option>
+            <option value="title">Title</option>
+            <option value="author">Author</option>
+            <option value="genre">Genre</option>
+          </select>
+          <button id="searchButton">Search</button>
+        </div>
+        <div id="searchResults" class="book-grid"></div>
+        <div class="search-info" id="searchInfo" style="display: none">
+          <p>Smart Search: Enter a genre to get personalized recommendations</p>
+        </div>
+      </section>
+
+      <section id="library-section">
+        <div class="shelves">
+          <div class="shelf" id="toRead">
+            <h2>To Read</h2>
+            <div class="shelf-books book-grid"></div>
+          </div>
+          <div class="shelf" id="reading">
+            <h2>Currently Reading</h2>
+            <div class="shelf-books book-grid"></div>
+          </div>
+          <div class="shelf" id="finished">
+            <h2>Finished</h2>
+            <div class="shelf-books book-grid"></div>
+          </div>
+        </div>
+        <div class="reading-stats">
+          <h2>Reading Stats</h2>
+          <div class="charts-container">
+            <div class="chart-wrapper">
+              <canvas id="libraryChart"></canvas>
+            </div>
+            <div class="chart-wrapper">
+              <canvas id="genreChart"></canvas>
+            </div>
+          </div>
+          <div id="statsDetails" class="stats-details"></div>
+        </div>
+      </section>
+    </main>
+
+    <div id="bookModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div id="bookDetails"></div>
+        <div class="progress-container">
+          <label for="readingProgress">Reading Progress:</label>
+          <input
+            type="range"
+            id="readingProgress"
+            min="0"
+            max="100"
+            value="0"
+          />
+          <span id="progressValue">0%</span>
+        </div>
+        <textarea
+          id="bookNotes"
+          placeholder="Add your notes here..."
+        ></textarea>
+        <div class="modal-buttons">
+          <button id="saveProgress">Save Progress</button>
+          <button id="moveBook">Move to Shelf</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
