@@ -1,4 +1,5 @@
 This book recommender website lets you search for books by title, author, or genre, add them to your library, and track your reading progress. It provides recommendations, library statistics, and a user-friendly light/dark mode. Built with HTML, CSS, and JavaScript, it uses LocalStorage for offline access and Chart.js for visual statistics—no login required.
+
 **Features:**
 - Search for books by title, author, or genre
 - Add books to your library and track reading progress
